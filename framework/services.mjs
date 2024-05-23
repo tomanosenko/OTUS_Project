@@ -5,12 +5,11 @@ export const generateToken = async (usm, pswd) => {
   const url = `${config.baseUrl}/Account/v1/GenerateToken`
   const body = {
     userName: usm,
-    password: pswd
+    password: pswd,
   }
   const response = await axios.post(url, body)
   return response.data.token
 }
-
 
 export const createBook = async (ID, ISBN, token) => {
   const url = `${config.baseUrl}/BookStore/v1/Books`

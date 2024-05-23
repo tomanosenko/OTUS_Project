@@ -9,14 +9,17 @@ const config = {
     '^.+\\.mjs$': 'babel-jest',
     '^.+\\.js$': 'babel-jest',
   },
-reporters: [
-'default',
-['jest-html-reporters', {
-publicPath: './reports/html-report',
-filename: 'index.html',
-openReport: !!process.env.CI
-}]
-],
+  reporters: [
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: './reports/html-report',
+        filename: 'index.html',
+        openReport: !!process.env.CI,
+      },
+    ],
+  ],
 
   moduleFileExtensions: ['js', 'mjs'],
 

@@ -17,14 +17,23 @@ describe('API тесты с контроллерами и паттернами �
   })
   describe('API тесты для post запроса', () => {
     it('Создание книги и получение статуса и данных', async () => {
-      const response = await createBook('5f45e6eb-7f4c-482e-88ba-f13f6f56c8ed', config.isbn[1], token)
+      const response = await createBook(
+        '5f45e6eb-7f4c-482e-88ba-f13f6f56c8ed',
+        config.isbn[1],
+        token,
+      )
       expect(response.status).toBe(201)
       expect(response.data).toBeDefined()
     })
 
     describe('API тесты для put запроса', () => {
       it('Изменение книги и получение статуса и данных', async () => {
-        const response = await changeBook( config.isbn[1],  '5f45e6eb-7f4c-482e-88ba-f13f6f56c8ed', config.isbn[0], token)
+        const response = await changeBook(
+          config.isbn[1],
+          '5f45e6eb-7f4c-482e-88ba-f13f6f56c8ed',
+          config.isbn[0],
+          token,
+        )
         expect(response.status).toBe(200)
         expect(response.data).toBeDefined()
       })
@@ -42,8 +51,12 @@ describe('API тесты с контроллерами и паттернами �
 
   describe('тесты на delete запроса', () => {
     it('Всё удаляется', async () => {
-      const response = await deleteBook(config.isbn[0], '5f45e6eb-7f4c-482e-88ba-f13f6f56c8ed', token)
+      const response = await deleteBook(
+        config.isbn[0],
+        '5f45e6eb-7f4c-482e-88ba-f13f6f56c8ed',
+        token,
+      )
       expect(response.status).toBe(200)
     })
   })
-});
+})
