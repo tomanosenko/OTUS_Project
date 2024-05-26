@@ -33,7 +33,7 @@ jobs:
         with:
           name: report
           if-no-files-found: error
-          path: ./test-html-reporters-attach
+          path: ./jest-html-reporters-attach
       - name: Run tests coverage
         run: npm run test:coverage
         continue-on-error: true
