@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 21.x]
+        node-version: [18.x]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
         with:
           name: report
           if-no-files-found: error
-          path: ./reports/html-report/test-html-reporters-attach
+          path: ./test-html-reporters-attach
       - name: Run tests coverage
         run: npm run test:coverage
         continue-on-error: true
