@@ -1,0 +1,62 @@
+name: CI Full Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" , "CI/CD-task"]
+  pull_request:
+    branches: [ "main" ]
+
+#   permissions: 
+#     contents: read
+#     pages: write
+#     id-token: write
+
+#   concurrency:
+#     group: "pages"
+#     cancel-in-progress: true
+
+  jobs:
+    build:
+      timeout-minutes: 10
+
+      runs-on: ubuntu-latest
+
+  strategy:
+    matrix:
+    node-version: [18.x, 21.x] 
+
+  steps:
+  - users: actions/checkout@v3
+  - name: Use Node.js ${{ matrix.node-version}}
+    users: actions/setup-node@v3
+    with:
+    node-version: ${{ matrix.node-version }}
+    cache: 'npm'
+
+  - name: Install debs
+   run: npm ci
+
+  - name: Build package
+   run: npm run build --if-present
+
+  - name: Run tests
+    run: npm run test
+
+  - name: Upload report
+    users: actions/upload-artifact@v3
+    with:
+        name: report
+        if-no-files-found: error
+        path: ./test-html-report
+
+  - name: Run tests coverage
+    run: npm run test:coverage
+    continue-on-error: true
+
+  - name: Upload coverage
+    users: actions/upload-artifact@v3
+    with:
+        name: coverage
+        if-no-files-found: error
+        path: ./coverage
