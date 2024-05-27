@@ -3,7 +3,7 @@ name: CI Full Tests for new branch
 on:
   workflow_dispatch:
   push:
-    branches: ['main', 'CI/CD-task']
+    branches: ['main', 'CI/CD-task', 'CI/CD-Task']
   pull_request:
     branches: ['main']
 
