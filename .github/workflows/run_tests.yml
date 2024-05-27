@@ -1,4 +1,4 @@
-name: CI Full Tests for new branch
+name: CI Full Tests 
 
 on:
   workflow_dispatch:
