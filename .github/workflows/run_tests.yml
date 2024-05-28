@@ -11,6 +11,16 @@ on:
     branches:
       - 'main'
 
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+      
+concurrency:
+    group: 'pages'
+    cancel-in-progress: true
+  
+
 jobs:
   build:
     timeout-minutes: 10
@@ -55,3 +65,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             Repository: ${{ github.repository }}
             See changes: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+
+      - name: Deploy to Github
+        id: deployment
+        uses: action-deploy-page@v1
