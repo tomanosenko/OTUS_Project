@@ -68,4 +68,4 @@
 
                   - name: Deploy to Github
                     id: deployment
-                    uses: action-deploy-page@v3
+                    uses: deploy-page@v1
