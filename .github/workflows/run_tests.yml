@@ -66,6 +66,6 @@
                         Repository: ${{ github.repository }}
                         See changes: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
 
-                  - name: Deploy to Github
+                  - name: Deploy to Github Pages
                     id: deployment
-                    uses: actions/deploy-page@v1
+                    uses: actions/deploy-pages@v4
