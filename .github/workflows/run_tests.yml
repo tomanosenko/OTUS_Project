@@ -65,6 +65,6 @@ jobs:
             Repository: ${{ github.repository }}
             See changes: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
 
-      - name: Deploy to github pages
+      - name: Deploy to Github
         id: deployment
-        uses: action/deploy-pages@v1
+        uses: action/deploy-page@v1
