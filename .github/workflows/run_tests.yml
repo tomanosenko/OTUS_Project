@@ -67,4 +67,4 @@ jobs:
 
       - name: Deploy to github pages
         id: deployment
-        uses: action/github-pages-deploy-action@v3
+        uses: action/deploy-pages@v3
