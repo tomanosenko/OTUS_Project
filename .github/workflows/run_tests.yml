@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - '18.x'
+          - '21.x'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
