@@ -68,4 +68,4 @@
 
                   - name: Deploy to Github
                     id: deployment
-                    uses: tomanosenko/github-pages-deploy-action@v1
+                    uses: actions/deploy-page@v1
