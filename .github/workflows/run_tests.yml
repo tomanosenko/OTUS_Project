@@ -9,17 +9,7 @@
                   - 'CI/CD-Task'
               pull_request:
                 branches:
-                  - 'main'
-
-            permissions:
-                contents: read
-                pages: write
-                id-token: write
-                  
-            concurrency:
-                group: 'pages'
-                cancel-in-progress: true
-              
+                  - 'main'       
 
             jobs:
               build:
@@ -66,6 +56,3 @@
                         Repository: ${{ github.repository }}
                         See changes: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
 
-                  - name: Deploy to Github Pages
-                    id: deployment
-                    uses: actions/deploy-pages@v3
