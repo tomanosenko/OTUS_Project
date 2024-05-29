@@ -67,4 +67,4 @@ jobs:
 
       - name: Deploy to Github
         id: deployment
-        uses: actions/deploy-page@v3
+        uses: action-deploy-page@v1
