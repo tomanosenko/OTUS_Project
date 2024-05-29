@@ -3,13 +3,6 @@ name: CI Full Tests for new branch
 on:
   workflow_dispatch:
   push:
-    branches:
-      - 'main'
-      - 'CI/CD-task'
-      - 'CI/CD-Task'
-  pull_request:
-    branches:
-      - 'main'
 
 permissions:
   contents: read
@@ -46,6 +39,8 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - run: echo $GITHUB_REF
 
       - name: Upload report
         uses: actions/upload-artifact@v3
