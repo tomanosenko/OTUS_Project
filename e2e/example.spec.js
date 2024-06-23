@@ -21,7 +21,7 @@ test('get started link', async ({ page }) => {
   ).toBeVisible()
 })
 
-// Мои тесты для https://www.wildberries.ru/
+// Мои  тесты для https://www.wildberries.ru/ 
 
 test('Просмотр существующих платьев и сарафанов с помощью кнопки навигации по сайту', async ({
   page,
