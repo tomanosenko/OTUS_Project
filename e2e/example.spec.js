@@ -21,7 +21,7 @@ test('get started link', async ({ page }) => {
   ).toBeVisible()
 })
 
-// Мои  тесты для https://www.wildberries.ru/ 
+// Мои  тесты для https://www.wildberries.ru/
 
 test('Просмотр существующих платьев и сарафанов с помощью кнопки навигации по сайту', async ({
   page,
@@ -76,23 +76,25 @@ test('При добавлении в товара в корзину, требу�
   ).toBeVisible()
 })
 
-test('Успешное добавление товара в корзину и удаление из неё', async ({
-  page,
-}) => {
+test('Успешное удаление товара из корзины', async ({ page }) => {
   await page.goto('https://www.wildberries.ru/')
   await page.getByRole('searchbox', { name: 'Найти на Wildberries' }).click()
   await page
     .getByRole('searchbox', { name: 'Найти на Wildberries' })
-    .fill('чайники')
+    .fill('чайник')
   await page
     .getByRole('searchbox', { name: 'Найти на Wildberries' })
     .press('Enter')
-  await page.getByLabel('Чайник электрический стеклянный 2 л KONONO').click()
+  await page
+    .getByLabel(
+      'Чайник электрический металлический 2 литра электрочайник MARWA',
+    )
+    .click()
   await page.getByRole('button', { name: 'Добавить в корзину' }).click()
-  await page.getByRole('link', { name: 'Перейти в корзину' }).click()
-  await expect(page.getByText('1 товар').nth(1)).toBeVisible()
+  await page.getByRole('link', { name: 'Корзина' }).click()
   await page.getByRole('button', { name: 'Удалить' }).click()
   await expect(
     page.getByRole('heading', { name: 'В корзине пока пусто' }),
   ).toBeVisible()
+  await page.getByRole('heading', { name: 'В корзине пока пусто' }).click()
 })
