@@ -65,11 +65,11 @@ test('При добавлении в товара в корзину, требу�
   await page.getByRole('searchbox', { name: 'Найти на Wildberries' }).click()
   await page
     .getByRole('searchbox', { name: 'Найти на Wildberries' })
-    .fill('кроссовки')
+    .fill('кроссовки женские')
   await page
     .getByRole('searchbox', { name: 'Найти на Wildberries' })
     .press('Enter')
-  await page.getByLabel('Кроссовки унисекс Amina shoes').click()
+  await page.getByLabel('Кроссовки легкие Essenza', { exact: true }).click()
   await page.getByRole('button', { name: 'Добавить в корзину' }).click()
   await expect(
     page.getByRole('heading', { name: 'Выберите размер' }),
