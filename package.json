@@ -13,7 +13,13 @@
     "codestyle": "run-s lint format",
     "build": "babel src --out-dir build --source-maps inline",
     "test": "jest --verbose",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "test:e2e": "playwright test --ui",
+    "test:e2e:ci": "playwright test",
+    "test:e2e:trace": "playwright test --trace on",
+    "test:e2e:show": "playwright test --headed",
+    "test:e2e:show-report": "playwright show report",
+    "test:e2e:debug": "playwright test --debug"
   },
   "author": "Damir Rysaev <freepad@ya.ru>",
   "keywords": [],
